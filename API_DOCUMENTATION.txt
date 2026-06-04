@@ -1,0 +1,138 @@
+# Gym Management API
+
+**Base URL:** `http://localhost:5000/api`
+
+---
+
+## 1. Login
+**POST** `/api/admin/auth/login`
+
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "Admin@123"
+}
+```
+
+**Response:** `{ "token": "...", "adminId": 1, "name": "Admin", "email": "admin@gym.com" }`
+
+---
+
+## 2. Get Members
+**GET** `/api/members` ✅ Auth
+
+**Query:** `?query=name`
+
+**Response:** Array of members
+
+---
+
+## 3. Get Member by ID
+**GET** `/api/members/{id}` ✅ Auth
+
+---
+
+## 4. Create Member
+**POST** `/api/members` ✅ Auth
+
+```json
+{
+  "name": "John",
+  "phone": "9876543210",
+  "email": "john@example.com",
+  "membershipType": "Gold",
+  "joinDate": "2026-01-15"
+}
+```
+
+---
+
+## 5. Update Member
+**PUT** `/api/members/{id}` ✅ Auth
+
+---
+
+## 6. Delete Member
+**DELETE** `/api/members/{id}` ✅ Auth
+
+---
+
+## 7. Get Classes
+**GET** `/api/classes` ✅ Auth
+
+---
+
+## 8. Get Class by ID
+**GET** `/api/classes/{id}` ✅ Auth
+
+---
+
+## 9. Create Class
+**POST** `/api/classes` ✅ Auth
+
+```json
+{
+  "className": "Yoga",
+  "trainerName": "Sarah",
+  "scheduleTime": "Monday 09:00 AM",
+  "capacity": 20
+}
+```
+
+---
+
+## 10. Update Class
+**PUT** `/api/classes/{id}` ✅ Auth
+
+---
+
+## 11. Delete Class
+**DELETE** `/api/classes/{id}` ✅ Auth
+
+---
+
+## 12. Get Revenue
+**GET** `/api/revenue` ✅ Auth
+
+---
+
+## 13. Create Revenue
+**POST** `/api/revenue` ✅ Auth
+
+```json
+{
+  "memberName": "John",
+  "amount": 150.00,
+  "paymentMethod": "Credit Card"
+}
+```
+
+---
+
+## 14. Dashboard Stats
+**GET** `/api/dashboard/stats` ✅ Auth
+
+```json
+{
+  "totalMembers": 45,
+  "totalClasses": 12,
+  "totalRevenue": 4500.00,
+  "totalTransactions": 30
+}
+```
+
+---
+
+## Status Codes
+- **200** OK
+- **201** Created
+- **400** Bad Request
+- **401** Unauthorized
+- **404** Not Found
+
+---
+
+## Auth Header
+```
+Authorization: Bearer {JWT_TOKEN}
+```

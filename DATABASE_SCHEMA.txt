@@ -1,0 +1,249 @@
+# Database Schema Documentation
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Admins](#admins-table)
+3. [Members](#members-table)
+4. [GymClasses](#gymclasses-table)
+5. [Revenue](#revenue-table)
+6. [SQL Scripts](#sql-scripts)
+
+---
+
+## Overview
+
+| Table Name | Purpose | Primary Key | Status |
+|-----------|---------|------------|--------|
+| **Admins** | Admin user accounts & authentication | AdminId (INT) | ✓ Active |
+| **Members** | Gym member information & profiles | MemberId (INT) | ✓ Active |
+| **GymClasses** | Available gym classes & schedules | ClassId (INT) | ✓ Active |
+| **Revenue** | Payment transactions & billing | RevenueId (INT) | ✓ Active |
+
+---
+
+## ADMINS TABLE
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                              TABLE: Admins                                    ║
+║                         Location: Database = gymdb                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### Column Details
+
+```
+┌────┬──────────────┬──────────┬────────┬──────────┬─────────────┬──────────────────────────┐
+│ ID │ Column Name  │ Data Type│ Length │ Required │ Primary Key │ Default Value            │
+├────┼──────────────┼──────────┼────────┼──────────┼─────────────┼──────────────────────────┤
+│ 1  │ AdminId      │ INT      │ -      │ YES (✓)  │ PRIMARY (✓) │ AUTO_INCREMENT           │
+│ 2  │ Name         │ VARCHAR  │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 3  │ Email        │ VARCHAR  │ 150    │ YES (✓)  │ NO (UNIQUE) │ -                        │
+│ 4  │ PasswordHash │ VARCHAR  │ 255    │ YES (✓)  │ NO          │ -                        │
+│ 5  │ Role         │ VARCHAR  │ 50     │ YES (✓)  │ NO          │ 'Admin'                  │
+│ 6  │ CreatedAt    │ DATETIME │ -      │ YES (✓)  │ NO          │ CURRENT_TIMESTAMP (UTC)  │
+└────┴──────────────┴──────────┴────────┴──────────┴─────────────┴──────────────────────────┘
+```
+
+### SQL CREATE Statement
+
+```sql
+CREATE TABLE `Admins` (
+  `AdminId` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Email` VARCHAR(150) NOT NULL UNIQUE,
+  `PasswordHash` VARCHAR(255) NOT NULL,
+  `Role` VARCHAR(50) NOT NULL DEFAULT 'Admin',
+  `CreatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`AdminId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+---
+
+## MEMBERS TABLE
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                              TABLE: Members                                   ║
+║                         Location: Database = gymdb                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### Column Details
+
+```
+┌────┬─────────────────┬──────────┬────────┬──────────┬─────────────┬──────────────────────────┐
+│ ID │ Column Name     │ Data Type│ Length │ Required │ Primary Key │ Default Value            │
+├────┼─────────────────┼──────────┼────────┼──────────┼─────────────┼──────────────────────────┤
+│ 1  │ MemberId        │ INT      │ -      │ YES (✓)  │ PRIMARY (✓) │ AUTO_INCREMENT           │
+│ 2  │ Name            │ VARCHAR  │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 3  │ Phone           │ VARCHAR  │ 20     │ YES (✓)  │ NO          │ -                        │
+│ 4  │ Email           │ VARCHAR  │ 150    │ YES (✓)  │ NO          │ -                        │
+│ 5  │ MembershipType  │ VARCHAR  │ 50     │ YES (✓)  │ NO          │ -                        │
+│ 6  │ JoinDate        │ DATETIME │ -      │ YES (✓)  │ NO          │ -                        │
+└────┴─────────────────┴──────────┴────────┴──────────┴─────────────┴──────────────────────────┘
+```
+
+### SQL CREATE Statement
+
+```sql
+CREATE TABLE `Members` (
+  `MemberId` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Phone` VARCHAR(20) NOT NULL,
+  `Email` VARCHAR(150) NOT NULL,
+  `MembershipType` VARCHAR(50) NOT NULL,
+  `JoinDate` DATETIME NOT NULL,
+  PRIMARY KEY (`MemberId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+---
+
+## GYMCLASSES TABLE
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                            TABLE: GymClasses                                  ║
+║                         Location: Database = gymdb                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### Column Details
+
+```
+┌────┬──────────────┬──────────┬────────┬──────────┬─────────────┬──────────────────────────┐
+│ ID │ Column Name  │ Data Type│ Length │ Required │ Primary Key │ Default Value            │
+├────┼──────────────┼──────────┼────────┼──────────┼─────────────┼──────────────────────────┤
+│ 1  │ ClassId      │ INT      │ -      │ YES (✓)  │ PRIMARY (✓) │ AUTO_INCREMENT           │
+│ 2  │ ClassName    │ VARCHAR  │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 3  │ TrainerName  │ VARCHAR  │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 4  │ ScheduleTime │ VARCHAR  │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 5  │ Capacity     │ INT      │ -      │ YES (✓)  │ NO          │ -                        │
+└────┴──────────────┴──────────┴────────┴──────────┴─────────────┴──────────────────────────┘
+```
+
+### SQL CREATE Statement
+
+```sql
+CREATE TABLE `GymClasses` (
+  `ClassId` INT NOT NULL AUTO_INCREMENT,
+  `ClassName` VARCHAR(100) NOT NULL,
+  `TrainerName` VARCHAR(100) NOT NULL,
+  `ScheduleTime` VARCHAR(100) NOT NULL,
+  `Capacity` INT NOT NULL CHECK (`Capacity` >= 1 AND `Capacity` <= 1000),
+  PRIMARY KEY (`ClassId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+---
+
+## REVENUE TABLE
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                              TABLE: Revenue                                   ║
+║                         Location: Database = gymdb                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
+
+### Column Details
+
+```
+┌────┬──────────────┬──────────────┬────────┬──────────┬─────────────┬──────────────────────────┐
+│ ID │ Column Name  │ Data Type    │ Length │ Required │ Primary Key │ Default Value            │
+├────┼──────────────┼──────────────┼────────┼──────────┼─────────────┼──────────────────────────┤
+│ 1  │ RevenueId    │ INT          │ -      │ YES (✓)  │ PRIMARY (✓) │ AUTO_INCREMENT           │
+│ 2  │ MemberName   │ VARCHAR      │ 100    │ YES (✓)  │ NO          │ -                        │
+│ 3  │ Amount       │ DECIMAL      │ 10,2   │ YES (✓)  │ NO          │ -                        │
+│ 4  │ PaymentMethod│ VARCHAR      │ 50     │ YES (✓)  │ NO          │ -                        │
+│ 5  │ PaymentDate  │ DATETIME     │ -      │ YES (✓)  │ NO          │ CURRENT_TIMESTAMP (UTC)  │
+└────┴──────────────┴──────────────┴────────┴──────────┴─────────────┴──────────────────────────┘
+```
+
+### SQL CREATE Statement
+
+```sql
+CREATE TABLE `Revenue` (
+  `RevenueId` INT NOT NULL AUTO_INCREMENT,
+  `MemberName` VARCHAR(100) NOT NULL,
+  `Amount` DECIMAL(10, 2) NOT NULL CHECK (`Amount` > 0),
+  `PaymentMethod` VARCHAR(50) NOT NULL,
+  `PaymentDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`RevenueId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+---
+
+## SQL Scripts
+
+### Create All Tables
+
+```sql
+-- Create Admins Table
+CREATE TABLE `Admins` (
+  `AdminId` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Email` VARCHAR(150) NOT NULL UNIQUE,
+  `PasswordHash` VARCHAR(255) NOT NULL,
+  `Role` VARCHAR(50) NOT NULL DEFAULT 'Admin',
+  `CreatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`AdminId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create Members Table
+CREATE TABLE `Members` (
+  `MemberId` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Phone` VARCHAR(20) NOT NULL,
+  `Email` VARCHAR(150) NOT NULL,
+  `MembershipType` VARCHAR(50) NOT NULL,
+  `JoinDate` DATETIME NOT NULL,
+  PRIMARY KEY (`MemberId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create GymClasses Table
+CREATE TABLE `GymClasses` (
+  `ClassId` INT NOT NULL AUTO_INCREMENT,
+  `ClassName` VARCHAR(100) NOT NULL,
+  `TrainerName` VARCHAR(100) NOT NULL,
+  `ScheduleTime` VARCHAR(100) NOT NULL,
+  `Capacity` INT NOT NULL CHECK (`Capacity` >= 1 AND `Capacity` <= 1000),
+  PRIMARY KEY (`ClassId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create Revenue Table
+CREATE TABLE `Revenue` (
+  `RevenueId` INT NOT NULL AUTO_INCREMENT,
+  `MemberName` VARCHAR(100) NOT NULL,
+  `Amount` DECIMAL(10, 2) NOT NULL CHECK (`Amount` > 0),
+  `PaymentMethod` VARCHAR(50) NOT NULL,
+  `PaymentDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`RevenueId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+### Key Constraints
+
+```
+Admins:
+├─ AdminId → PRIMARY KEY, AUTO_INCREMENT
+├─ Email → UNIQUE INDEX
+└─ Role → DEFAULT 'Admin'
+
+Members:
+├─ MemberId → PRIMARY KEY, AUTO_INCREMENT
+├─ Phone → VARCHAR(20) NOT NULL
+└─ All fields → REQUIRED
+
+GymClasses:
+├─ ClassId → PRIMARY KEY, AUTO_INCREMENT
+└─ Capacity → CHECK (1-1000 range)
+
+Revenue:
+├─ RevenueId → PRIMARY KEY, AUTO_INCREMENT
+├─ Amount → DECIMAL(10,2), CHECK (> 0)
+└─ PaymentDate → AUTO-SET TO CURRENT_TIMESTAMP
+```
