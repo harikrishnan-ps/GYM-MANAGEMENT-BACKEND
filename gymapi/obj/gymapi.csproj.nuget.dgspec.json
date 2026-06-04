@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\newgym\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj": {}
+    "D:\\gymgitapi\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj": {}
   },
   "projects": {
-    "D:\\newgym\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj": {
+    "D:\\gymgitapi\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\newgym\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj",
+        "projectUniqueName": "D:\\gymgitapi\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj",
         "projectName": "gymapi",
-        "projectPath": "D:\\newgym\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj",
-        "packagesPath": "C:\\Users\\adithya.wilson\\.nuget\\packages\\",
-        "outputPath": "D:\\newgym\\GYM-MANAGEMENT-SYSTEM\\gymapi\\obj\\",
+        "projectPath": "D:\\gymgitapi\\GYM-MANAGEMENT-SYSTEM\\gymapi\\gymapi.csproj",
+        "packagesPath": "C:\\Users\\nandana.r\\.nuget\\packages\\",
+        "outputPath": "D:\\gymgitapi\\GYM-MANAGEMENT-SYSTEM\\gymapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\adithya.wilson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nandana.r\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
