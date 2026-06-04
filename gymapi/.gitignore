@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+App_Data/
+secrets.json
+.sln
