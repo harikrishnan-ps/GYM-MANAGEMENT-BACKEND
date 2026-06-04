@@ -1,4 +1,4 @@
-namespace GymManagement.Api.Helpers
+/*namespace GymManagement.Api.Helpers
 {
     public static class PasswordHasher
     {
@@ -12,4 +12,4 @@ namespace GymManagement.Api.Helpers
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
     }
-}
+}*/
