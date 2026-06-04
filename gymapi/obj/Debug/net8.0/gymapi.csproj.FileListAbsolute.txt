@@ -1,0 +1,8 @@
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.csproj.AssemblyReference.cache
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.GeneratedMSBuildEditorConfig.editorconfig
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.AssemblyInfoInputs.cache
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.AssemblyInfo.cs
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.csproj.CoreCompileInputs.cache
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.MvcApplicationPartsAssemblyInfo.cs
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.MvcApplicationPartsAssemblyInfo.cache
+D:\collabproject\GYM-MANAGEMENT-SYSTEM\GYM-MANAGEMENT-SYSTEM\gymapi\obj\Debug\net8.0\gymapi.sourcelink.json
